@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ICML-RePer-Rebuttal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      cursor: zoom-in;
+      transition: 0.3s;
+    }
+    .caption {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    /* Modal (hidden by default) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.85);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+    .close {
+      position: absolute;
+      top: 20px; right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- <h1>Human Annotation Interface</h1> -->
+
+  <img src="sys-caption-2.png" alt="Caption annotation interface" onclick="openModal(this.src)" />
+  <div class="caption">Re-Fig.1 Human annotation interface for caption quality assessment. Annotators ranked anonymized captions from three models per image using five quality criteria (relevance, accuracy, detail, coherence, and completeness). Click the image to enlarge.</div>
+
+  <img src="sys-attn-2.png" alt="Attention map interface" onclick="openModal(this.src)" />
+  <div class="caption">Re-Fig.2 Human annotation interface for assessing attention map alignment with human focus. For each image, annotators selected the attention map that best matched their own viewing behavior. Click the image to enlarge.</div>
+
+  <!-- Modal -->
+  <div id="imgModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById("imgModal").style.display = "block";
+      document.getElementById("modalImage").src = src;
+    }
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
